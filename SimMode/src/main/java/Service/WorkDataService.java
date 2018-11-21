@@ -65,7 +65,7 @@ public class WorkDataService implements WorkDataDao {
                 a.setXfc(resultSet.getString("xfc"));
                 a.setAppid(resultSet.getString("appid"));
                 a.setTerm(resultSet.getString("term"));
-                a.setParams(resultSet.getString("param"));
+                a.setParam(resultSet.getString("param"));
                 list.add(a);
             }
             resultSet.close();
@@ -91,7 +91,7 @@ public class WorkDataService implements WorkDataDao {
             preparedStatement.setString(2, workData.getXfc());
             preparedStatement.setString(3,workData.getAppid());
             preparedStatement.setString(4,workData.getTerm());
-            preparedStatement.setString(5,workData.getParams());
+            preparedStatement.setString(5,workData.getParam());
             preparedStatement.execute();
             connection.close();
             preparedStatement.close();

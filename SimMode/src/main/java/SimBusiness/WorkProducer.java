@@ -31,11 +31,12 @@ public class WorkProducer implements Runnable{
         transClass.xtransService = new XtransService();
         WorkClass workClass = new WorkClass();
         workClass.workDataService = new WorkDataService();
+        HttpRequest httpRequest = new HttpRequest();
        // /WorkDataService workDataService = new WorkDataService();
       //  System.out.println("start producting id:" + Thread.currentThread().getId());
         try {
             while (isRunning) {
-                List<WorkData> list = workClass.getWorkData(set);
+                List<WorkData> list = httpRequest.getWorkdatas(set);
                 Thread.sleep(r.nextInt(SLEEPTIME));
                 for (WorkData data : list) {
                     System.out.println(data + " 加入队列");

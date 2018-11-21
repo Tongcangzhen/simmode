@@ -15,10 +15,12 @@ public class XfcService implements xfcDao {
         Connection connection = DbUtil.getCon();
         XfcContractEntity xfcContractEntity = new XfcContractEntity();
         String sql="SELECT * FROM xfc_contract WHERE xfc= ?";
+        PreparedStatement preparedStatement =null;
+        ResultSet resultSet = null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, xfc);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 xfcContractEntity.setName(resultSet.getString("name"));
                 xfcContractEntity.setXfc(resultSet.getString("xfc"));
@@ -26,11 +28,30 @@ public class XfcService implements xfcDao {
                 xfcContractEntity.setStatus(resultSet.getString("status"));
                 xfcContractEntity.setRemark(resultSet.getString("remark"));
             }
-            resultSet.close();
-            connection.close();
-            preparedStatement.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
         }
 
         return xfcContractEntity;
@@ -40,11 +61,13 @@ public class XfcService implements xfcDao {
         Connection connection = DbUtil.getCon();
         List<XfcDatasourceEntity> list = new ArrayList<XfcDatasourceEntity>();
         String sql="SELECT * FROM xfc_datasource WHERE xfc= ? AND xterm = ? ";
+        PreparedStatement preparedStatement =null;
+        ResultSet resultSet = null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, xfc);
             preparedStatement.setString(2, xterm);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 XfcDatasourceEntity xfcDatasourceEntity = new XfcDatasourceEntity();
                 xfcDatasourceEntity.setInstid(resultSet.getInt("instid"));
@@ -55,13 +78,30 @@ public class XfcService implements xfcDao {
                 xfcDatasourceEntity.setXds(resultSet.getString("xds"));
                 list.add(xfcDatasourceEntity);
             }
-            resultSet.close();
-            connection.close();
-            preparedStatement.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
 
+            }
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         return list;
     }
 

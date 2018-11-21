@@ -4,7 +4,7 @@ import java.sql.*;
 
 public  class DbUtil {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/jinghang?useSSL=false";
+    static final String DB_URL = "jdbc:mysql://localhost/jinghang?useSSL=false"+"&serverTimezone=GMT%2B8";;
     static final String USER = "localuser";
     static final String PASS = "toch1997za1.";
     public static Connection getCon() {

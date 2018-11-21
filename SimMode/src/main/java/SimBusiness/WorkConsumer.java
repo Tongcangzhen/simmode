@@ -27,6 +27,7 @@ public class WorkConsumer implements Runnable {
             TransClass transClass = new TransClass();
             transClass.xtransService = new XtransService();
             WorkDataService workDataService = new WorkDataService();
+            workClass.httpRequest = new HttpRequest();
             while(true){
                 WorkData data = queue.take();
                 if(data != null)
@@ -38,7 +39,7 @@ public class WorkConsumer implements Runnable {
                   //  System.out.println(MessageFormat.format("{0}*{1}={2}", data.getData(),data.getData(),re));
                     Thread.sleep(r.nextInt(SLEEPTIME));
                     set.remove(data.getId());
-                    workDataService.deleteWorkData(data);
+                   // workDataService.deleteWorkData(data);
                 }
             }
         }catch (InterruptedException e) {

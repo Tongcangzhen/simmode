@@ -5,14 +5,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class WorkData {
     private int id;
-    private String params;
+    private String param;
 
-    public String getParams() {
-        return params;
+    public String getParam() {
+        return param;
     }
 
-    public void setParams(String params) {
-        this.params = params;
+    public void setParam(String params) {
+        this.param = params;
     }
 
     public int getId() {

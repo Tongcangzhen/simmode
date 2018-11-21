@@ -33,18 +33,18 @@ public class Test {
     private static WorkData getRandomData() throws JsonProcessingException {
         Random random = new Random();
         WorkData workData = new WorkData();
-        workData.setXfc("2018-03-001");
+        workData.setXfc("2018-03-002");
         workData.setTerm("1");
-        workData.setAppid("2018-01-001");
+        workData.setAppid("2018-01-002");
         ConcurrentHashMap<String, String> map = new ConcurrentHashMap<String, String>();
-        map.put("phone", "13000" + random.nextInt(8768767));
+       // map.put("phone", "13000" + random.nextInt(8768767));
         map.put("custCertNo", random.nextInt(99999) + "330824" + random.nextInt(1238273189));
-        map.put("bankNo", random.nextInt(999999999)+"");
+        map.put("appid", "2018-01-002");
         map.put("custName", "李狗蛋"+random.nextInt(999));
         ObjectMapper mapper = new ObjectMapper();
         String params = mapper.writeValueAsString(map);
        // workData.setMap(map);
-        workData.setParams(params);
+        workData.setParam(params);
         return workData;
     }
     }

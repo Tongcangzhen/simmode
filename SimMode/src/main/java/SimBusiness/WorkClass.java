@@ -18,18 +18,21 @@ public class WorkClass {
     XfcService xfcService;
     WorkDataService workDataService;
     TransClass transClass;
+    HttpRequest httpRequest;
     public  void dofun(WorkData workData) {
         transClass = new TransClass();
         transClass.xtransService = new XtransService();
         transClass.updateInfoStatus(workData,"02");
         List<XfcDatasourceEntity> datasources = xfcService.getDataSources(workData.getXfc(),workData.getTerm());
 
-
+        StringBuilder sbPush = new StringBuilder();
+        sbPush.append("getDatasources:");
         StringBuilder stringBuilder = new StringBuilder();
         for (XfcDatasourceEntity a : datasources) {
             transClass.insertLog(workData,"02","Query","Datasource",String.valueOf(a.getInstid()));
             Map<String, String> map = getParam(a.getXfc(), a.getSds(), workData);
             String data = DataInterface.getData(a.getXds(), map);
+            sbPush.append(a.getXds() + ">>");
             stringBuilder.append(data);
             try {
                 Thread.sleep(1000);
@@ -39,6 +42,7 @@ public class WorkClass {
 
         }
         transClass.updateInfoStatus(workData,"03");
+        String result1 = stringBuilder.toString();
         System.out.print(FusionModel.fusionMdodel(stringBuilder.toString()));
         transClass.insertLog(workData,"03","Fetch","Fusion Container","2018-02-001");
         try {
@@ -48,6 +52,7 @@ public class WorkClass {
         }
         transClass.updateInfoStatus(workData,"00");
         String app=xfcService.getPushApp(workData.getXfc(),workData.getTerm());
+        httpRequest.pushApp(workData, sbPush.toString());
         System.out.println("已推送App"+app);
         transClass.insertLog(workData,"00","Push","Application",app);
         try {
@@ -84,7 +89,7 @@ public class WorkClass {
 
     public Map<String, String> getParams(WorkData workData) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Map<String, String> a = mapper.readValue(workData.getParams(), Map.class);
+        Map<String, String> a = mapper.readValue(workData.getParam(), Map.class);
         return a;
     }
 
