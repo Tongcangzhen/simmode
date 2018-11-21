@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
+﻿-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: jinghang
 -- ------------------------------------------------------
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `result_data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `result_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `work_id` int(11) NOT NULL,
@@ -46,7 +46,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `work_data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `work_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `xfc` varchar(45) DEFAULT NULL,
@@ -73,7 +73,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xfc_contract`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xfc_contract` (
   `xfc` varchar(64) NOT NULL,
   `name` varchar(32) DEFAULT NULL,
@@ -100,7 +100,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xfc_datasource`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xfc_datasource` (
   `instid` int(11) NOT NULL,
   `xfc` varchar(64) NOT NULL,
@@ -129,7 +129,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xfc_param`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xfc_param` (
   `instid` int(11) NOT NULL,
   `xfc` varchar(64) NOT NULL,
@@ -158,7 +158,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xfc_push`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xfc_push` (
   `xfc` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `xterm` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -185,7 +185,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xfc_support_ds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xfc_support_ds` (
   `xfc` varchar(64) NOT NULL,
   `sds` varchar(64) NOT NULL,
@@ -211,7 +211,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xfc_trigger`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xfc_trigger` (
   `xfc` varchar(64) NOT NULL,
   `xterm` varchar(64) NOT NULL,
@@ -238,7 +238,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_agent`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_agent` (
   `agent` varchar(64) NOT NULL,
   `name` varchar(40) DEFAULT NULL,
@@ -263,7 +263,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_app`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_app` (
   `xapp` varchar(64) NOT NULL,
   `domain` varchar(512) DEFAULT NULL,
@@ -296,7 +296,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_ccloud`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_ccloud` (
   `ccid` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -324,7 +324,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_container`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_container` (
   `cid` varchar(64) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
@@ -352,7 +352,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_domain`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_domain` (
   `domain` varchar(64) NOT NULL,
   `name` varchar(40) DEFAULT NULL,
@@ -377,7 +377,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_ds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_ds` (
   `xds` varchar(64) NOT NULL,
   `domain` varchar(512) DEFAULT NULL,
@@ -409,7 +409,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_ds_param`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_ds_param` (
   `instid` bigint(20) NOT NULL,
   `seqno` int(11) DEFAULT NULL,
@@ -439,7 +439,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_fparam`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_fparam` (
   `fparam` varchar(64) NOT NULL,
   `datatype` varchar(10) DEFAULT NULL,
@@ -463,7 +463,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xm_model`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xm_model` (
   `xmodel` varchar(64) NOT NULL,
   `name` varchar(40) DEFAULT NULL,
@@ -489,7 +489,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xp_entity_account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xp_entity_account` (
   `category` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `entityid` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -499,7 +499,7 @@ CREATE TABLE `xp_entity_account` (
   `lasttrans` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `remark` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`category`,`entityid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -517,7 +517,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xp_fusion_account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xp_fusion_account` (
   `category` varchar(10) NOT NULL,
   `accountpk` varchar(64) DEFAULT NULL,
@@ -541,7 +541,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xtrans_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xtrans_info` (
   `xtrans` varchar(64) NOT NULL,
   `xfc` varchar(64) DEFAULT NULL,
@@ -571,7 +571,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `xtrans_log`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+ SET character_set_client = utf8 ;
 CREATE TABLE `xtrans_log` (
   `instid` int(11) NOT NULL AUTO_INCREMENT,
   `xtrans` varchar(64) NOT NULL,
