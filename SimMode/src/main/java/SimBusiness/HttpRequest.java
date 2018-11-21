@@ -2,7 +2,7 @@ package SimBusiness;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import sun.java2d.opengl.WGLSurfaceData;
+//import sun.java2d.opengl.WGLSurfaceData;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -231,11 +231,11 @@ public final class HttpRequest {
         Map<String, String> params = new HashMap<String, String>();
         params.put("work_id", workData.getId() + "");
         params.put("result_txt", result);
-        post("http://localhost:63342/untitled/xmApi/push.php", params);
+        post("http://localhost/simModePhp/xmApi/push.php", params);
     }
 
     public List<WorkData> getWorkdatas(Set<Integer> set) {
-        String result = post("http://localhost:63342/untitled/xmApi/fetch.php", "");
+        String result = post("http://localhost/simModePhp/xmApi/fetch.php", "");
        // System.out.println("\n" + result);
         ObjectMapper objectMapper = new ObjectMapper();
         List<WorkData> list = null;
