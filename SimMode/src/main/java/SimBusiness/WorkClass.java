@@ -10,6 +10,7 @@ import SimInterface.FusionModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.resource.spi.work.Work;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,7 +20,28 @@ public class WorkClass {
     WorkDataService workDataService;
     TransClass transClass;
     HttpRequest httpRequest;
+    String pushUrl;
+    String fetchUrl;
+
+    public WorkClass() {
+        init();
+    }
+    private  void init() {
+        if (pushUrl == null||fetchUrl==null ) {
+            Properties props = new Properties();
+            String path = System.getProperty("user.dir") +"\\config.properties";
+            // ResourceBundle resourceBundle = ResourceBundle.getBundle("config");
+            try {
+                props.load(new FileInputStream(path));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            pushUrl = props.getProperty("pushUrl");
+            fetchUrl = props.getProperty("fetchUrl");
+        }
+    }
     public  void dofun(WorkData workData) {
+       // init();
         transClass = new TransClass();
         transClass.xtransService = new XtransService();
         transClass.updateInfoStatus(workData,"02");
@@ -52,7 +74,7 @@ public class WorkClass {
         }
         transClass.updateInfoStatus(workData,"00");
         String app=xfcService.getPushApp(workData.getXfc(),workData.getTerm());
-        httpRequest.pushApp(workData, sbPush.toString());
+        httpRequest.pushApp(workData, sbPush.toString(),pushUrl);
         System.out.println("已推送App"+app);
         transClass.insertLog(workData,"00","Push","Application",app);
         try {

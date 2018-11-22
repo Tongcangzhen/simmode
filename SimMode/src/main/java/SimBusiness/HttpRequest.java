@@ -227,15 +227,15 @@ public final class HttpRequest {
         HttpRequest h = new HttpRequest();
     }
 
-    public void pushApp(WorkData workData,String result) {
+    public void pushApp(WorkData workData,String result,String url) {
         Map<String, String> params = new HashMap<String, String>();
         params.put("work_id", workData.getId() + "");
         params.put("result_txt", result);
-        post("http://localhost:63342/untitled/xmApi/push.php", params);
+        post(url, params);
     }
 
-    public List<WorkData> getWorkdatas(Set<Integer> set) {
-        String result = post("http://localhost:63342/untitled/xmApi/fetch.php", "");
+    public List<WorkData> getWorkdatas(Set<Integer> set ,String url) {
+        String result = post(url, "");
        // System.out.println("\n" + result);
         ObjectMapper objectMapper = new ObjectMapper();
         List<WorkData> list = null;

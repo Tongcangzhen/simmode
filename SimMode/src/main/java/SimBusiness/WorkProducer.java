@@ -36,7 +36,7 @@ public class WorkProducer implements Runnable{
       //  System.out.println("start producting id:" + Thread.currentThread().getId());
         try {
             while (isRunning) {
-                List<WorkData> list = httpRequest.getWorkdatas(set);
+                List<WorkData> list = httpRequest.getWorkdatas(set,workClass.fetchUrl);
                 Thread.sleep(r.nextInt(SLEEPTIME));
                 for (WorkData data : list) {
                     System.out.println(data + " 加入队列");

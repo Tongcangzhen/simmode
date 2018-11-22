@@ -27,7 +27,7 @@ public class Test {
         for (int i = 0; i < 10; i++) {
             workDataService.insertWorkData(getRandomData());
         }
-
+        System.out.println("Ok!");
         }
 
     private static WorkData getRandomData() throws JsonProcessingException {
