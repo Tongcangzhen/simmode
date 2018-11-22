@@ -1,5 +1,6 @@
 package DB;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
@@ -18,7 +19,8 @@ public  class DbUtil {
     private static void init() {
         if (DB_URL == null || USER == null || PASS == null) {
             Properties props = new Properties();
-            String path = System.getProperty("user.dir") +"\\config.properties";
+            File f = null;
+            String path = System.getProperty("user.dir") +f.separator+"config.properties";
            // ResourceBundle resourceBundle = ResourceBundle.getBundle("config");
             try {
                 props.load(new FileInputStream(path));

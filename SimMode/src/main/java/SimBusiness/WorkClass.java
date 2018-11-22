@@ -10,6 +10,7 @@ import SimInterface.FusionModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.resource.spi.work.Work;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
@@ -29,7 +30,8 @@ public class WorkClass {
     private  void init() {
         if (pushUrl == null||fetchUrl==null ) {
             Properties props = new Properties();
-            String path = System.getProperty("user.dir") +"\\config.properties";
+            File f = null;
+            String path = System.getProperty("user.dir") +f.separator+"config.properties";
             // ResourceBundle resourceBundle = ResourceBundle.getBundle("config");
             try {
                 props.load(new FileInputStream(path));
